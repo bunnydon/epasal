@@ -10,7 +10,7 @@ class ProductOverviewScreen extends StatelessWidget {
         price: 2000,
         description: "onepiece tshirt ",
         imageURL:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnA6mvoe17teo-V5Onim7U_udLcSTI_Fi6eYg_xmnZrS_rNBkj.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYQSrXyw3qOQ0aUWts8NjCHO6A6BQHCgBeb8qr6dcogO0oPqMD.jpg",
         isFavourite: false),
     Product(
         id: "first",
