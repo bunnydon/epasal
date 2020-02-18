@@ -1,6 +1,5 @@
 import 'package:epasal/provider/provider_products.dart';
 import 'package:flutter/material.dart';
-import 'package:epasal/model/product.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -11,9 +10,7 @@ class ProductDetails extends StatelessWidget {
     final id = ModalRoute.of(context).settings.arguments as String;
     // we get single products from the provider
     final loadedProduct =
-        Provider.of<Products>(context).items.firstWhere((prod) {
-      return prod.id == id;
-    });
+        Provider.of<Products>(context, listen: false).findById(id);
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedProduct.title),

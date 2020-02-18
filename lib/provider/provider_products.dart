@@ -1,6 +1,7 @@
-import 'package:epasal/model/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+
+import 'model/product.dart';
 
 class Products with ChangeNotifier {
   List<Product> _items = [
@@ -40,5 +41,25 @@ class Products with ChangeNotifier {
 
   List<Product> get items {
     return [..._items];
+  }
+
+  Product findById(String id) {
+    return items.firstWhere((prod) {
+      return prod.id == id;
+    });
+  }
+
+  void addProducts() {
+    _items.add(
+      Product(
+          id: "first",
+          title: "tshirt",
+          price: 2000,
+          description: "onepiece tshirt ",
+          imageURL:
+              "https://geekbeholder-production.s3.amazonaws.com/product/picture/luffy-picking-his-nose-one-piece-t-shirt-large.jpg",
+          isFavourite: false),
+    );
+    notifyListeners();
   }
 }
