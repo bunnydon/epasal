@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'model/product.dart';
 
@@ -39,10 +38,19 @@ class Products with ChangeNotifier {
         isFavourite: false),
   ];
 
+  //this returns all the item of the product
   List<Product> get items {
     return [..._items];
   }
 
+  //this returns only the favourites products
+  List<Product> get favourites {
+    return _items.where((prodItem) {
+      return prodItem.isFavourite;
+    }).toList();
+  }
+
+  //this returns particular items from the id
   Product findById(String id) {
     return items.firstWhere((prod) {
       return prod.id == id;

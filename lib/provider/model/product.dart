@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Product with ChangeNotifier {
   final String id;
@@ -18,5 +18,6 @@ class Product with ChangeNotifier {
 
   void toggleIsFavourite() {
     isFavourite = !isFavourite;
+    notifyListeners();
   }
 }

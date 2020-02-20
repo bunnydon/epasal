@@ -1,4 +1,6 @@
+import 'package:epasal/provider/cart_provider.dart';
 import 'package:epasal/provider/provider_products.dart';
+import 'package:epasal/screens/cart_screen.dart';
 import 'package:epasal/screens/product_details.dart';
 import 'package:epasal/screens/product_overview_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: Products(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: Products(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Cart(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "E-Pasal",
@@ -23,6 +32,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ProductOverviewScreen.routId: (context) => ProductOverviewScreen(),
           ProductDetails.routId: (context) => ProductDetails(),
+          CartScreen.routId: (context) => CartScreen(),
         },
       ),
     );
