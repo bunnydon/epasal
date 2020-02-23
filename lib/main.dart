@@ -1,6 +1,8 @@
 import 'package:epasal/provider/cart_provider.dart';
+import 'package:epasal/provider/order_provider.dart';
 import 'package:epasal/provider/provider_products.dart';
 import 'package:epasal/screens/cart_screen.dart';
+import 'package:epasal/screens/order_screen.dart';
 import 'package:epasal/screens/product_details.dart';
 import 'package:epasal/screens/product_overview_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: Cart(),
         ),
+        ChangeNotifierProvider.value(
+          value: Orders(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -33,6 +38,7 @@ class MyApp extends StatelessWidget {
           ProductOverviewScreen.routId: (context) => ProductOverviewScreen(),
           ProductDetails.routId: (context) => ProductDetails(),
           CartScreen.routId: (context) => CartScreen(),
+          OrderScreen.routeId: (context) => OrderScreen(),
         },
       ),
     );
