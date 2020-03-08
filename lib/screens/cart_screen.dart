@@ -1,4 +1,4 @@
-import 'package:epasal/provider/cart_provider.dart';
+import 'package:epasal/provider/cart_provider.dart' show Cart;
 import 'package:epasal/provider/order_provider.dart';
 import 'package:epasal/screens/order_screen.dart';
 import 'package:epasal/widgets/cart_item.dart';
@@ -54,7 +54,8 @@ class CartScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      order.addOrder(cart.items.values, cart.totalAmount);
+                      order.addOrder(
+                          cart.items.values.toList(), cart.totalAmount);
                       cart.clearCart();
                       Navigator.pushNamed(context, OrderScreen.routeId);
                     },

@@ -1,4 +1,4 @@
-import 'package:epasal/widgets/cart_item.dart';
+import 'package:epasal/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 
 class OrderItem {

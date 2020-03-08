@@ -1,4 +1,5 @@
 import 'package:epasal/provider/order_provider.dart' show Orders;
+import 'package:epasal/widgets/app_drawer.dart';
 import 'package:epasal/widgets/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class OrderScreen extends StatelessWidget {
           itemBuilder: (ctx, i) {
             return OrderItem(orderData.orders[i]);
           }),
+      drawer: AppDrawer(),
     );
   }
 }

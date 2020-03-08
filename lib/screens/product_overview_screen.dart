@@ -2,6 +2,7 @@ import 'package:epasal/provider/cart_provider.dart';
 import 'package:epasal/screens/cart_screen.dart';
 import 'package:epasal/widgets/badge.dart';
 import 'package:epasal/widgets/product_grid.dart';
+import 'package:epasal/widgets/app_drawer.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -67,6 +68,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
         ],
       ),
       body: ProductGrid(_showFavourites),
+      drawer: AppDrawer(),
     );
   }
 }
