@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import 'model/product.dart';
 
@@ -57,17 +60,53 @@ class Products with ChangeNotifier {
     });
   }
 
-  void addProducts() {
-    _items.add(
-      Product(
-          id: "first",
-          title: "tshirt",
-          price: 2000,
-          description: "onepiece tshirt ",
-          imageURL:
-              "https://geekbeholder-production.s3.amazonaws.com/product/picture/luffy-picking-his-nose-one-piece-t-shirt-large.jpg",
-          isFavourite: false),
-    );
+  Future<void> addProduct(Product product) {
+    const url = "https://epasal-62e88.firebaseio.com/products.json";
+//    const test = "http://ip.jsontest.com";
+//    http.Response response = await http.get(test);
+    //print (response.statuscode);
+//    http.get(url);
+
+    return http
+        .post(url,
+            body: json.encode({
+              'title': product.title,
+              'price': product.price,
+              'description': product.description,
+              'isFavourite': product.isFavourite,
+            }))
+        //then uses future after posting on url other things are executed
+        .then((response) {
+      print(json.decode(response.body));
+
+      final newProduct = Product(
+        id: json.decode(response.body)['name'],
+        title: product.title,
+        price: product.price,
+        description: product.description,
+        imageURL: product.imageURL,
+      );
+      _items.insert(0, newProduct);
+      notifyListeners();
+      //if we get an error during the post we catch errors and post accordingly
+    }).catchError((error) {
+      print(error);
+      throw error;
+    });
+  }
+
+  //------------ this function updates the current product-----------
+  void updateProduct(String id, Product upProduct) {
+    final productIndex = _items.indexWhere((prod) => prod.id == id);
+    if (productIndex >= 0) {
+      _items[productIndex] = upProduct;
+      notifyListeners();
+    }
+  }
+
+  //------------ this function delete current product----------
+  void deleteProduct(String id) {
+    _items.removeWhere((prod) => prod.id == id);
     notifyListeners();
   }
 }

@@ -17,7 +17,9 @@ class UserProductScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, EditProductScreen.routeId);
+            },
           )
         ],
       ),
@@ -27,7 +29,8 @@ class UserProductScreen extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (ctx, index) => UserProductItems(
               productsData.items[index].title,
-              productsData.items[index].imageURL),
+              productsData.items[index].imageURL,
+              productsData.items[index].id),
           itemCount: productsData.items.length,
         ),
       ),

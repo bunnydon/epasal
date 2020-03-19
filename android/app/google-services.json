@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "743063491798",
+    "firebase_url": "https://epasal-62e88.firebaseio.com",
+    "project_id": "epasal-62e88",
+    "storage_bucket": "epasal-62e88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743063491798:android:4e59ec123d61d7ed182577",
+        "android_client_info": {
+          "package_name": "com.iitnepal.epasal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743063491798-9an4mnl44alhva3mn9h59t7um88828u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYlEZvG261vpPOIaKf6PPhPVqlA6Prl6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743063491798-9an4mnl44alhva3mn9h59t7um88828u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
